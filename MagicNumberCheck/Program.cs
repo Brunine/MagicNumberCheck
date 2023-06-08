@@ -37,11 +37,12 @@ public class FileAnalyzer {
  ░▒ ░       ░ ▒ ▒░   ░▒ ░ ▒░  ▒   ▒▒ ░  ░ ▒ ▒░ 
  ░░       ░ ░ ░ ▒    ░░   ░   ░   ▒   ░ ░ ░ ▒  
               ░ ░     ░           ░  ░    ░ ░  ";
+        string linha = "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=";
         Console.WriteLine(texto1);
         Console.WriteLine(texto2);
-        Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        Console.WriteLine(linha);
         if (!File.Exists(fullPath)) {
-            Console.WriteLine("Arquivo extensions.json não encontrado.");
+            Console.WriteLine(linha);
             return;
         }
         if (args.Length > 0){
@@ -50,14 +51,14 @@ public class FileAnalyzer {
                 string fileExtension = Path.GetExtension(filePath).TrimStart('.');
                 string fileMimeType = GetFileMimeType(filePath, fileExtension);
                 Console.WriteLine($"[*] O arquivo '{Path.GetFileName(filePath)}' é do tipo '{fileMimeType}'.");
-                Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                Console.WriteLine(linha);
             }else{
                 Console.WriteLine("[*] O arquivo não existe.");
-                Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                Console.WriteLine(linha);
             }
         }else{
             Console.WriteLine("[*] Arraste um arquivo para cima do executável.");
-            Console.WriteLine("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+            Console.WriteLine(linha);
         }
         Console.ReadLine();
     }
